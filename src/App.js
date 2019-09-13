@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Switch, Route} from 'react-router-dom'
+import Header from './Components/Header'
+import Items from './Components/Items'
+import Cart from './Components/Cart'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const apiUrl = '/api/shelfie/'
+
+class App extends React.Component {
+  state = {
+    inventory: []
+  }
+
+
+  render() {
+    // let createList = this.state.inventory.map(el => {
+    //   return <Items 
+    //   handleDelete={this.handleDelete}
+    //   handleEdit=
+    // })
+    return (
+        <div className="App">
+          <div>
+            <Header/>
+          </div>
+            <div className='body'>
+              <Items/>
+              <Cart/>
+            </div>
+        </div>
+    );
+  }
 }
+export default App
 
-export default App;
+
