@@ -7,10 +7,13 @@ const app = express()
 
 app.use(express.json())
 
-const apiUrl = '/api/inventory/'
+const apiUrl = '/api/inventory'
 //endpoints 
 app.get(apiUrl, ctrl.getAll)
-
+app.get(`${apiUrl}/:id`, ctrl.getOne)
+app.post(apiUrl, ctrl.addItem)
+app.delete(`${apiUrl}/:id`, ctrl.deleteOne)
+app.put(`${apiUrl}/:id`, ctrl.updateItem)
 
 
 massive(CONNECTION_STRING).then(db => {

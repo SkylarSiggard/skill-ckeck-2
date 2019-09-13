@@ -3,16 +3,14 @@ import {Link} from 'react-router-dom'
 
 
 
-class Items extends React.Component {
+class Cart extends React.Component {
   render() {
     return (
       
-        <div className="items">
-            item list
-            
+        <div>
+            Product
         </div>
     );
   }
 }
-export default Items
-
+export default Cart

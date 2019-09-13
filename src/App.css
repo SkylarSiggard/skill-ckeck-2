@@ -15,14 +15,14 @@
 
 .cart {
   background-color: limegreen;
-  width: 500px;
+  width: 400px;
   height: 400px;
   padding: 30px;
 }
 .items {
   background-color: orangered;
-  width: 500px;
-  height: 200px;
+  width: 400px;
+  height: 100px;
   padding: 30px;
 }
 .body {
