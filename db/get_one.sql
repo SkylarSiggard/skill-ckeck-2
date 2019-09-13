@@ -1,2 +1,4 @@
 SELECT * FROM inventory
-WHERE item_id = $1
+WHERE item_id = $1;
+
+-- workds

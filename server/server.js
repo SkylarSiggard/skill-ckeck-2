@@ -15,7 +15,7 @@ app.post(apiUrl, ctrl.addItem)
 app.delete(`${apiUrl}/:id`, ctrl.deleteOne)
 app.put(`${apiUrl}/:id`, ctrl.updateItem)
 
-
+//connections
 massive(CONNECTION_STRING).then(db => {
     app.set('db' , db )
     console.log('db running')
