@@ -1,15 +1,14 @@
 import React from 'react';
 import axios from 'axios'
 
-const apiUrl = '/api/shelfie/'
+const apiUrl = '/api/inventory'
 
 class Dashboard extends React.Component {
   state = {
     products: []
   }
   componentDidMount() {
-    axios 
-      .get(apiUrl).then((products) => {
+    axios.get(apiUrl).then((products) => {
         this.setState({products: products.data})
       })
   }
@@ -17,21 +16,28 @@ class Dashboard extends React.Component {
     return (
       
         <div className='list'>
-            item list
             {
               this.state.products.length ? (
                 this.state.products.map(products => {
                   return (
                     <div className='items'>
-                      <img src={products.img_url} alt=""/>
-                      <p>{products.name_item}</p>
-                      <p>{products.price_item}</p>
+                      
+                    <img className='picture' src={products.img_url} alt=""/>
+                      
+                      <div className='info'>
+                        <p>{products.name_item}</p>
+                      </div>
+                      <div className='info'>
+                        <p>{products.price_item}</p>
+                      </div>
+                      <button>Delete</button>
+                      <button>Edit</button>
                     </div>
                   )
                 })
               ) : null
             }
-            <h1>{this.state.products.length ? this.state.products[0].name : null}</h1>
+            {/* <h1>{this.state.products.length ? this.state.products[0].name : null}</h1> */}
         </div>
     );
   }

@@ -22,10 +22,19 @@
 .items {
   background-color: orangered;
   width: 400px;
-  height: 100px;
+  height: 200px;
   padding: 30px;
+  margin: 30px;
 }
 .body {
   display: flex;
   justify-content: space-around;
+}
+.picture {
+  height: 80px;
+  width: 80px;
+}
+.viewing {
+  height: 200px;
+  width: 300px;
 }

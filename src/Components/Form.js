@@ -1,35 +1,56 @@
 import React from 'react';
 import Product from './Product'
-const apiUrl = '/api/shelfie/'
+import axios from 'axios'
 
+const apiUrl = '/api/inventory'
 class Form extends React.Component {
-    state = {
-        picture: '',
+    state = { 
+        picture: 'https://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg',
         name: '',
-        price: null
+        price: ''
       }
-    //   handleChange = (e) => {
-    //     this.setState({
-    //       img: 
-    //     })
-    //   }
 
-
+      //need to fix this area 
+      handleChange = (e) => {
+        this.setState({
+          picture: e.target.value
+        })
+      }
+    
+      handleSubmit = () => {
+        axios.post(apiUrl, { text: this.state.input }).then(res => {
+          this.setState({
+            picture: res.data,
+            name: '',
+            price: ''
+          })
+        })
+      }
+    
+      handleCancel = (id) => {
+        axios.delete(`/api/inventory/${id}`).then(res => {
+          this.setState({
+            name: res.data
+          })
+        })
+      }
 
       render() {
     return (
       
         <div className='cart'>
-                 items thing
             <div>
-                {/* <img src={picture.img_url} alt={name.name_item}/> */}
+                <img className='viewing'src={this.state.picture} alt=''/>
             </div>
+                Image URL:
             <div>
                 <input value={this.state.text} onChange={(e) => this.handleChange(e)} type="text" name="" id=""/>
             </div>
+                Product Name:
             <div>
                 <input value={this.state.text} type="text" name="" id=""/>
             </div>
+                Price:
             <div>
                 <input value={this.state.text} type="text" name="" id=""/>
             </div>

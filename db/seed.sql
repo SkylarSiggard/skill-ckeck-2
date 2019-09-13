@@ -1,15 +1,15 @@
-INSERT INTO inventory (name_item, price, image_url)
+INSERT INTO inventory (name_item, price_item, img_url)
 VALUES ('Nintendo Switch',  299, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
-('Nintendo Switch',  299, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
-('Nintendo Switch',  299, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
-('Nintendo Switch',  299, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
-('Nintendo Switch',  299, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
-('Nintendo Switch',  299, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
-('Nintendo Switch',  299, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
-('Nintendo Switch',  299, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
-('Nintendo Switch',  299, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
-('Nintendo Switch',  299, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
-('Nintendo Switch',  299, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg')
+('Nintendo Switch',  200, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
+('Nintendo Switch',  254, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
+('Nintendo Switch',  235, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
+('Nintendo Switch',  2935, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
+('Nintendo Switch',  234, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
+('Nintendo Switch',  2245, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
+('Nintendo Switch',  4534, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
+('Nintendo Switch',  5234, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
+('Nintendo Switch',  345, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg'),
+('Nintendo Switch',  246, 'https://www.nintendo.com/content/dam/noa/en_US/hardware/switch/nintendo-switch-new-package/gallery/bundle_color_console%20(3).jpg')
 
 
 -- dummy data
