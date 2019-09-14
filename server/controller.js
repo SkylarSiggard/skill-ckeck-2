@@ -19,22 +19,25 @@ module.exports = {
       const db = req.app.get('db')
       const {img_url, name_item, price_item} = req.body
       db.add_item({img_url, name_item, price_item}).then(result => {
-        //   console.log(result)
+          console.log(result)
           res.status(200).send(result)
       })
+      .catch(err => {
+        console.log(err)
+    })
   }, 
   updateItem: (req, res) => {
       const db = req.app.get('db')
-      const {add_name} = req.body
-      const {id} = req.params
-      db.update_item([item_name, id]).then(result => {
+      const {item_name} = req.body
+      const {item_id} = req.params
+      db.update_item([item_name, item_id]).then(result => {
           res.status(200).send(result)
       })
   },
   deleteOne: (req, res) => {
       const db = req.app.get('db')
-      const {id} = req.params
-      db.delete_item([id]).then(result => {
+      const {item_id} = req.params
+      db.delete_item([item_id]).then(result => {
           res.status(200).send(result)
       })
   }
