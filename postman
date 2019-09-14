@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "5e760153-6a73-44ce-b96a-2e0d85a25e0d",
-		"name": "sql-massive-node",
+		"name": "skill-check-2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -34,7 +34,7 @@
 					"raw": "{\n\t\"name\": \"name 0\",\n\t\"description\": \"description 0\",\n\t\"price\": 0,\n\t\"image_url\": \"imageurl 0\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/products",
+					"raw": "http://localhost:4000/api/inventory",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -42,7 +42,7 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"products"
+						"inventory"
 					]
 				}
 			},
@@ -77,7 +77,7 @@
 					"raw": "{\n\t\"name\": \"name 1\",\n\t\"description\": \"description 1\",\n\t\"price\": 1,\n\t\"image_url\": \"imageurl 1\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/products",
+					"raw": "http://localhost:4000/api/inventory",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -85,7 +85,7 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"products"
+						"inventory"
 					]
 				}
 			},
@@ -120,7 +120,7 @@
 					"raw": "{\n\t\"name\": \"name 2\",\n\t\"description\": \"description 2\",\n\t\"price\": 2,\n\t\"image_url\": \"imageurl 2\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/products",
+					"raw": "http://localhost:4000/api/inventory",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -128,14 +128,14 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"products"
+						"inventory"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get all products",
+			"name": "Get all inventory",
 			"event": [
 				{
 					"listen": "test",
@@ -145,7 +145,7 @@
 							"const res = JSON.parse( responseBody );",
 							"const isArray = Array.isArray( res );",
 							"",
-							"let products = {",
+							"let inventory = {",
 							"  product0: null,",
 							"  product1: null,",
 							"  product2: null",
@@ -154,7 +154,7 @@
 							"var counter = 0;",
 							"",
 							"function findProduct( x ) {",
-							"  let product = products[`product${x}`] = res.find( product => (",
+							"  let product = inventory[`product${x}`] = res.find( product => (",
 							"    product.name === `name ${x}` &&",
 							"    product.description === `description ${x}` &&",
 							"    product.price === x &&",
@@ -174,7 +174,7 @@
 							"}",
 							"",
 							"",
-							"tests[ 'API can create and read products' ] = isArray && products.product0 && products.product1 && products.product2;",
+							"tests[ 'API can create and read inventory' ] = isArray && inventory.product0 && inventory.product1 && inventory.product2;",
 							""
 						]
 					}
@@ -193,7 +193,7 @@
 					"raw": "{\n\t\"name\": \"name 2\",\n\t\"description\": \"description 2\",\n\t\"price\": 2,\n\t\"imageurl\": \"imageurl 2\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/products",
+					"raw": "http://localhost:4000/api/inventory",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -201,7 +201,7 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"products"
+						"inventory"
 					]
 				}
 			},
@@ -247,7 +247,7 @@
 					"raw": "{\n\t\"name\": \"name 2\",\n\t\"description\": \"description 2\",\n\t\"price\": 2,\n\t\"imageurl\": \"imageurl 2\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/products/{{productID_0}}",
+					"raw": "http://localhost:4000/api/inventory/{{productID_0}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -255,7 +255,7 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"products",
+						"inventory",
 						"{{productID_0}}"
 					]
 				}
@@ -277,7 +277,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/products/{{productID_0}}?desc=updated",
+					"raw": "http://localhost:4000/api/inventory/{{productID_0}}?desc=updated",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -285,7 +285,7 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"products",
+						"inventory",
 						"{{productID_0}}"
 					],
 					"query": [
@@ -329,7 +329,7 @@
 					"raw": "{\n\t\"name\": \"name 2\",\n\t\"description\": \"description 2\",\n\t\"price\": 2,\n\t\"imageurl\": \"imageurl 2\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/products/{{productID_0}}",
+					"raw": "http://localhost:4000/api/inventory/{{productID_0}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -337,7 +337,7 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"products",
+						"inventory",
 						"{{productID_0}}"
 					]
 				}
@@ -359,7 +359,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/products/{{productID_0}}",
+					"raw": "http://localhost:4000/api/inventory/{{productID_0}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -367,7 +367,7 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"products",
+						"inventory",
 						"{{productID_0}}"
 					]
 				}
@@ -389,7 +389,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/products/{{productID_1}}",
+					"raw": "http://localhost:4000/api/inventory/{{productID_1}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -397,7 +397,7 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"products",
+						"inventory",
 						"{{productID_1}}"
 					]
 				}
@@ -419,7 +419,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/products/{{productID_2}}",
+					"raw": "http://localhost:4000/api/inventory/{{productID_2}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -427,7 +427,7 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"products",
+						"inventory",
 						"{{productID_2}}"
 					]
 				}
@@ -445,7 +445,7 @@
 							"const res = JSON.parse( responseBody );",
 							"const data_length = postman.getGlobalVariable(\"data_length\");",
 							"",
-							"tests[ 'API can successfully remove products '] = res.length === (data_length - 3);",
+							"tests[ 'API can successfully remove inventory '] = res.length === (data_length - 3);",
 							"",
 							""
 						]
@@ -465,7 +465,7 @@
 					"raw": "{\n\t\"name\": \"name 2\",\n\t\"description\": \"description 2\",\n\t\"price\": 2,\n\t\"imageurl\": \"imageurl 2\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/products",
+					"raw": "http://localhost:4000/api/inventory",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -473,7 +473,7 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"products"
+						"inventory"
 					]
 				}
 			},
