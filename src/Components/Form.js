@@ -1,5 +1,5 @@
 import React from 'react';
-import Product from './Product'
+
 import axios from 'axios'
 
 const apiUrl = '/api/inventory'
@@ -72,7 +72,6 @@ class Form extends React.Component {
                 <button onClick={this.handleSubmit}>Add Item</button>
                 <button onClick={this.handleCancel}>Cancel Item</button>
             </div>
-            <Product/>
         </div>
     );
   }
