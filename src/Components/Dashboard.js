@@ -20,41 +20,41 @@ class Dashboard extends React.Component {
         products: list.data
     })
   }
-  handleDelete = (id) => {
-    axios.delete(`/api/inventory/${id}`).then(res => {
+  handleDelete = (item_id) => {
+    axios.delete(`/api/inventory/${item_id}`).then(res => {
       this.setState({
         products: res.data
       })
     })
   }
-  // handleEdit = (id) => {
-  //   axios.put(`/api/inventory/${id}`, {img_url: this.state.picture, name_item: this.state.name, price_item: this.state.price }).then(result => {
-  //     this.setState({
-  //       edit: false
-  //     })
-  //   })
-  // }
+  handleEdit = (item_id) => {
+    axios.put(`/api/inventory/${item_id}`, {img_url: this.state.picture, name_item: this.state.name, price_item: this.state.price }).then(result => {
+      this.setState({
+        edit: false
+      })
+    })
+  }
 
-  // toggleEdit = () => {
-  //   this.setState({
-  //     edit: !this.state.edit
-  //   })
-  // }
-  // handleChange1 = (e) => {
-  //   this.setState({
-  //     picture: e.target.value
-  //   })
-  // }
-  // handleChange2 = (el) => {
-  //   this.setState({
-  //     name: el.target.value
-  //   })
-  // }
-  // handleChange3 = (element) => {
-  //   this.setState({
-  //     price: element.target.value
-  //   })
-  // }
+  toggleEdit = () => {
+    this.setState({
+      edit: !this.state.edit
+    })
+  }
+  handleChange1 = (e) => {
+    this.setState({
+      picture: e.target.value
+    })
+  }
+  handleChange2 = (el) => {
+    this.setState({
+      name: el.target.value
+    })
+  }
+  handleChange3 = (element) => {
+    this.setState({
+      price: element.target.value
+    })
+  }
 
   render() {
     return (
@@ -76,13 +76,13 @@ class Dashboard extends React.Component {
                       </div>
                       {!this.state.edit ? <>{this.props.text}</> :
                     <div>
-                    <input onChange={(e) => this.handleChange1(e)} value={this.state.products.img_url} type="text" />
-                    <input onChange={(el) => this.handleChange2(el)} value={this.state.products.name_item} type="text" />
-                    <input onChange={(element) => this.handleChange3(element)} value={this.state.products.price_item} type="text" />
-                    <button onClick={this.handleEdit}>Submit</button>
+                    <input onChange={(e) => this.handleChange1(e)} value={products.img_url} type="text" />
+                    <input onChange={(el) => this.handleChange2(el)} value={products.name_item} type="text" />
+                    <input onChange={(element) => this.handleChange3(element)} value={products.price_item} type="text" />
+                    <button onClick={() => this.handleEdit(products.item_id)}>Submit</button>
                     </div>}
                       <button onClick={this.toggleEdit}>Edit</button>
-                      <button onClick={() => this.handleDelete(this.item_id)}>Delete</button>
+                      <button onClick={() => this.handleDelete(products.item_id)}>Delete</button>
                     </div>
                   )
                 })

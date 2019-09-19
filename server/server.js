@@ -10,10 +10,10 @@ app.use(express.json())
 const apiUrl = '/api/inventory'
 //endpoints 
 app.post(apiUrl, ctrl.addItem)
-app.get(apiUrl, ctrl.getAll)
-app.get(`${apiUrl}/:id`, ctrl.getOne)
-app.delete(`${apiUrl}/:id`, ctrl.deleteOne)
 app.put(`${apiUrl}/:id`, ctrl.updateItem)
+app.delete(`${apiUrl}/:id`, ctrl.deleteOne)
+app.get(`${apiUrl}/:id`, ctrl.getOne)
+app.get(apiUrl, ctrl.getAll)
 
 //connections
 massive(CONNECTION_STRING).then(db => {
