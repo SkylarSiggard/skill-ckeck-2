@@ -2,54 +2,59 @@ import React from 'react';
 import axios from 'axios'
 import Product from './Product'
 
-const apiUrl = '/api/inventory'
 
 class Dashboard extends React.Component {
-  state = {
-    products: [],
-    edit: false,
-    input: this.props.text
+  constructor(props){
+    super(props) 
+    this.state = {
+      products: [],
+      edit: false,
+      input: this.props.text
+    }
   }
-  componentDidMount() {
-    axios.get(apiUrl).then((products) => {
-        this.setState({products: products.data})
-      })
+
+  async componentDidMount() {
+    const list = await axios.get('/api/inventory')
+      console.log(list.data)
+      this.setState({
+        products: list.data
+    })
   }
-  handleDelete = (item_id) => {
-    axios.delete(`/api/inventory/${item_id}`).then(res => {
+  handleDelete = (id) => {
+    axios.delete(`/api/inventory/${id}`).then(res => {
       this.setState({
         products: res.data
       })
     })
   }
-  handleEdit = (item_id) => {
-    axios.put(`/api/inventory/${item_id}`, {img_url: this.state.picture, name_item: this.state.name, price_item: this.state.price }).then(result => {
-      this.setState({
-        edit: false
-      })
-    })
-  }
+  // handleEdit = (id) => {
+  //   axios.put(`/api/inventory/${id}`, {img_url: this.state.picture, name_item: this.state.name, price_item: this.state.price }).then(result => {
+  //     this.setState({
+  //       edit: false
+  //     })
+  //   })
+  // }
 
-  toggleEdit = () => {
-    this.setState({
-      edit: !this.state.edit
-    })
-  }
-  handleChange1 = (e) => {
-    this.setState({
-      picture: e.target.value
-    })
-  }
-  handleChange2 = (el) => {
-    this.setState({
-      name: el.target.value
-    })
-  }
-  handleChange3 = (element) => {
-    this.setState({
-      price: element.target.value
-    })
-  }
+  // toggleEdit = () => {
+  //   this.setState({
+  //     edit: !this.state.edit
+  //   })
+  // }
+  // handleChange1 = (e) => {
+  //   this.setState({
+  //     picture: e.target.value
+  //   })
+  // }
+  // handleChange2 = (el) => {
+  //   this.setState({
+  //     name: el.target.value
+  //   })
+  // }
+  // handleChange3 = (element) => {
+  //   this.setState({
+  //     price: element.target.value
+  //   })
+  // }
 
   render() {
     return (

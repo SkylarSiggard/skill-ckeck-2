@@ -40,8 +40,8 @@ class Form extends React.Component {
           this.setState({
             picture: '',
             name: '',
-            price: ''
-            // text: ''
+            price: '',
+            text: ''
           })
         })
       }

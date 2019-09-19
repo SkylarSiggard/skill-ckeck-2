@@ -9,9 +9,9 @@ app.use(express.json())
 
 const apiUrl = '/api/inventory'
 //endpoints 
+app.post(apiUrl, ctrl.addItem)
 app.get(apiUrl, ctrl.getAll)
 app.get(`${apiUrl}/:id`, ctrl.getOne)
-app.post(apiUrl, ctrl.addItem)
 app.delete(`${apiUrl}/:id`, ctrl.deleteOne)
 app.put(`${apiUrl}/:id`, ctrl.updateItem)
 
