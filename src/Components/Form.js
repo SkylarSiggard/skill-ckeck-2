@@ -1,5 +1,4 @@
 import React from 'react';
-
 import axios from 'axios'
 
 const apiUrl = '/api/inventory'
@@ -28,10 +27,9 @@ class Form extends React.Component {
       }
       handleCancel = () => {
           this.setState({
-            picture: 'https://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg',
+            picture: '',
             name: '',
             price: ''
-            // text: ''
           })
         }
     
@@ -40,8 +38,7 @@ class Form extends React.Component {
           this.setState({
             picture: '',
             name: '',
-            price: '',
-            text: ''
+            price: ''
           })
         })
       }

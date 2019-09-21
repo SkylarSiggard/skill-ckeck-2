@@ -11,11 +11,11 @@ class Dashboard extends React.Component {
       edit: false,
       input: this.props.text
     }
+    console.log(this.props.products)
   }
 
   async componentDidMount() {
     const list = await axios.get('/api/inventory')
-      console.log(list)
       this.setState({
         products: list.data
     })
