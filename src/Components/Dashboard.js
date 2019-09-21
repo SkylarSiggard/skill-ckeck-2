@@ -15,7 +15,7 @@ class Dashboard extends React.Component {
 
   async componentDidMount() {
     const list = await axios.get('/api/inventory')
-      console.log(list.data)
+      console.log(list)
       this.setState({
         products: list.data
     })
