@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
     })
   }
   handleEdit = (item_id) => {
-    axios.put(`/api/inventory/${item_id}`, {img_url: this.state.picture, name_item: this.state.name, price_item: this.state.price }).then(result => {
+    axios.put(`/api/inventory/${item_id}`, {img_url: this.state.products.picture, name_item: this.state.products.name, price_item: this.state.products.price }).then(result => {
       this.setState({
         edit: false
       })
@@ -81,7 +81,7 @@ class Dashboard extends React.Component {
                     <input onChange={(element) => this.handleChange3(element)} value={products.price_item} type="text" />
                     <button onClick={() => this.handleEdit(products.item_id)}>Submit</button>
                     </div>}
-                      <button onClick={this.toggleEdit}>Edit</button>
+                      <button onClick={() => this.toggleEdit()}>Edit</button>
                       <button onClick={() => this.handleDelete(products.item_id)}>Delete</button>
                     </div>
                   )
