@@ -1,5 +1,5 @@
 UPDATE inventory
-SET item_name = $1
+SET name_item = $1
 WHERE item_id = $2;
 
 SELECT * FROM inventory

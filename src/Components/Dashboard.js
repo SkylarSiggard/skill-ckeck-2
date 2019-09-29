@@ -9,7 +9,10 @@ class Dashboard extends React.Component {
     super(props) 
     this.state = {
       products: [],
-      edit: false
+      edit: false,
+      picture: '',
+      name: '',
+      url: ''
     }
     console.log(this.state.products)
   }
@@ -27,8 +30,8 @@ class Dashboard extends React.Component {
       })
     })
   }
-  handleEdit = async (item_id) => {
-    axios.put(`/api/inventory/${item_id}`, {img_url: this.state.products.picture, name_item: this.state.products.name, price_item: this.state.products.price })
+  handleSubmit = async (item_id) => {
+    axios.put(`/api/inventory/${item_id}`, {img_url: this.state.picture, name_item: this.state.name, price_item: this.state.price })
     this.setState({
       edit: false
     })
@@ -68,7 +71,7 @@ class Dashboard extends React.Component {
                     <input onChange={(e) => this.handleChange(e, 'picture')} placeholder="url" type="text" />
                     <input onChange={(e) => this.handleChange(e, 'name')} placeholder='name' type="text" />
                     <input onChange={(e) => this.handleChange(e, 'price')} placeholder='price' type="text" />
-                    <button onClick={() => this.handleEdit(products.item_id)}>Submit</button>
+                    <button onClick={() => this.handleSubmit(products.item_id)}>Submit</button>
                     </div>}
                       <button onClick={() => this.toggleEdit()}>Edit</button>
                       <button onClick={() => this.handleDelete(products.item_id)}>Delete</button>

@@ -16,11 +16,11 @@ module.exports = {
         const list = await db.add_item({img_url, name_item, price_item})
             res.status(200).send(list)
     }, 
-    updateItem: (req, res) => {
+    updateItem: async (req, res) => {
         const db = req.app.get('db')
-        const {item_name} = req.body
+        const {name_item} = req.body
         const {item_id} = req.params
-        db.update_item([item_name, item_id]).then(result => {
+        db.update_item([name_item, item_id]).then(result => {
             res.status(200).send(result)
         })
     },
