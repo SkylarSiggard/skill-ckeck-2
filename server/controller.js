@@ -18,9 +18,11 @@ module.exports = {
     }, 
     updateItem: async (req, res) => {
         const db = req.app.get('db')
-        const {name_item} = req.body
-        const {item_id} = req.params
-        db.update_item([name_item, item_id]).then(result => {
+        const {img_url, name_item, price_item} = req.body
+        const {id} = req.params
+        console.log('im here back end',img_url, name_item, price_item, +id )
+        db.update_item([img_url, name_item, price_item, +id]).then(result => {
+            console.log('backend lower')
             res.status(200).send(result)
         })
     },
