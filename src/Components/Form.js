@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 const apiUrl = '/api/inventory'
 class Form extends React.Component {
@@ -10,19 +11,9 @@ class Form extends React.Component {
       }
 
       //need to fix this area 
-      handleChange1 = (e) => {
+      handleChange = (e, key) => {
         this.setState({
-          picture: e.target.value
-        })
-      }
-      handleChange2 = (el) => {
-        this.setState({
-          name: el.target.value
-        })
-      }
-      handleChange3 = (element) => {
-        this.setState({
-          price: element.target.value
+          [key]: e.target.value
         })
       }
       handleCancel = () => {
@@ -55,18 +46,18 @@ class Form extends React.Component {
             <div>
                 <input 
                 // value={this.state.text} 
-                onChange={(e) => this.handleChange1(e)} type="text" name="" id=""/>
+                onChange={(e) => this.handleChange(e, 'picture')} type="text"/>
             </div>
                 Product Name:
             <div>
-                <input value={this.state.text} onChange={(el) => this.handleChange2(el)} type="text" name="" id=""/>
+                <input value={this.state.text} onChange={(e) => this.handleChange(e, 'name')} type="text" />
             </div>
                 Price:
             <div>
-                <input value={this.state.text} onChange={(element) => this.handleChange3(element)} type="text" name="" id=""/>
+                <input value={this.state.text} onChange={(e) => this.handleChange(e, 'price')} type="text" />
             </div>
             <div>
-                <button onClick={this.handleSubmit}>Add Item</button>
+                <Link to='/'><button onClick={this.handleSubmit}>Add Item</button></Link>
                 <button onClick={this.handleCancel}>Cancel Item</button>
             </div>
         </div>

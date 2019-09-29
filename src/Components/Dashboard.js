@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import Product from './Product'
+import { async } from 'q';
 
 
 class Dashboard extends React.Component {
@@ -8,10 +9,9 @@ class Dashboard extends React.Component {
     super(props) 
     this.state = {
       products: [],
-      edit: false,
-      input: this.props.text
+      edit: false
     }
-    console.log(this.props.products)
+    console.log(this.state.products)
   }
 
   async componentDidMount() {
@@ -27,11 +27,10 @@ class Dashboard extends React.Component {
       })
     })
   }
-  handleEdit = (item_id) => {
-    axios.put(`/api/inventory/${item_id}`, {img_url: this.state.products.picture, name_item: this.state.products.name, price_item: this.state.products.price }).then(result => {
-      this.setState({
-        edit: false
-      })
+  handleEdit = async (item_id) => {
+    axios.put(`/api/inventory/${item_id}`, {img_url: this.state.products.picture, name_item: this.state.products.name, price_item: this.state.products.price })
+    this.setState({
+      edit: false
     })
   }
 
@@ -40,19 +39,9 @@ class Dashboard extends React.Component {
       edit: !this.state.edit
     })
   }
-  handleChange1 = (e) => {
+  handleChange = (e, key) => {
     this.setState({
-      picture: e.target.value
-    })
-  }
-  handleChange2 = (el) => {
-    this.setState({
-      name: el.target.value
-    })
-  }
-  handleChange3 = (element) => {
-    this.setState({
-      price: element.target.value
+      [key]: e.target.value
     })
   }
 
@@ -76,9 +65,9 @@ class Dashboard extends React.Component {
                       </div>
                       {!this.state.edit ? <>{this.props.text}</> :
                     <div>
-                    <input onChange={(e) => this.handleChange1(e)} value={products.img_url} type="text" />
-                    <input onChange={(el) => this.handleChange2(el)} value={products.name_item} type="text" />
-                    <input onChange={(element) => this.handleChange3(element)} value={products.price_item} type="text" />
+                    <input onChange={(e) => this.handleChange(e, 'picture')} placeholder="url" type="text" />
+                    <input onChange={(e) => this.handleChange(e, 'name')} placeholder='name' type="text" />
+                    <input onChange={(e) => this.handleChange(e, 'price')} placeholder='price' type="text" />
                     <button onClick={() => this.handleEdit(products.item_id)}>Submit</button>
                     </div>}
                       <button onClick={() => this.toggleEdit()}>Edit</button>
