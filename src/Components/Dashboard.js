@@ -31,7 +31,7 @@ class Dashboard extends React.Component {
     })
   }
   handleSubmit = async (item_id) => {
-    console.log('i am here',item_id, this.state.picture, this.state.name, this.state.price)
+    // console.log('i am here',item_id, this.state.picture, this.state.name, this.state.price)
     axios.put(`/api/inventory/${item_id}`, {img_url: this.state.picture, name_item: this.state.name, price_item: this.state.price })
     this.setState({
       edit: false
